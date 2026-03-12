@@ -75,7 +75,7 @@
 
 ### 安装依赖
 ```bash
-cd /math-learning
+cd /tianjin_students_testing_system
 npm install
 ```
 
