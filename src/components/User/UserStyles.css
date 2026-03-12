@@ -1,0 +1,468 @@
+/* 用户选择器样式 - 清新风格 */
+.user-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.current-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  padding: 10px 18px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.current-user:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info .avatar {
+  font-size: 28px;
+}
+
+.user-info .username {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.switch-user-btn {
+  padding: 6px 14px;
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.switch-user-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-width: 220px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.dropdown-header {
+  padding: 14px 18px;
+  background: var(--bg-hover);
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 13px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-bg);
+}
+
+.dropdown-item.active {
+  background: linear-gradient(135deg, var(--primary-bg) 0%, #E8F0FE 100%);
+}
+
+.dropdown-item .avatar {
+  font-size: 24px;
+}
+
+.dropdown-item .username {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.dropdown-item .check {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dropdown-item.create-new {
+  border-top: 1px solid var(--border-light);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* 创建用户弹窗 */
+.create-user-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  width: 90%;
+  max-width: 420px;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-content h3 {
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-family: var(--font-family);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.modal-content input::placeholder {
+  color: var(--text-light);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modal-actions button {
+  padding: 10px 24px;
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.cancel-btn {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.cancel-btn:hover {
+  background: var(--border-color);
+}
+
+.confirm-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 排行榜样式 */
+.leaderboard-container {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+}
+
+.leaderboard-container h2 {
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.empty-leaderboard {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-light);
+}
+
+.empty-leaderboard p {
+  margin: 8px 0;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--bg-hover);
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+}
+
+.leaderboard-item.current-user-item {
+  background: linear-gradient(135deg, var(--primary-bg) 0%, #E3F2FD 100%);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.leaderboard-item:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-sm);
+}
+
+.leaderboard-item .rank {
+  font-size: 24px;
+  font-weight: 700;
+  min-width: 45px;
+  color: var(--text-primary);
+}
+
+.leaderboard-item .rank-1 {
+  color: #FFD700;
+}
+
+.leaderboard-item .rank-2 {
+  color: #C0C0C0;
+}
+
+.leaderboard-item .rank-3 {
+  color: #CD7F32;
+}
+
+.leaderboard-item .user-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.leaderboard-item .user-info .avatar {
+  font-size: 36px;
+}
+
+.leaderboard-item .user-info .username {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.leaderboard-item .user-info .me-tag {
+  background: var(--primary-color);
+  color: white;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.leaderboard-item .stats {
+  display: flex;
+  gap: 12px;
+}
+
+.leaderboard-item .points {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.leaderboard-item .accuracy {
+  background: #E8F5E9;
+  color: #2E7D32;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .user-selector {
+    top: 12px;
+    right: 12px;
+  }
+
+  .current-user {
+    padding: 8px 14px;
+  }
+
+  .user-info .username {
+    display: none;
+  }
+
+  .leaderboard-container {
+    padding: 20px;
+  }
+
+  .leaderboard-item {
+    flex-wrap: wrap;
+  }
+
+  .leaderboard-item .stats {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  .modal-content {
+    padding: 24px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-selector {
+    top: 8px;
+    right: 8px;
+  }
+
+  .current-user {
+    padding: 6px 10px;
+  }
+
+  .user-info {
+    gap: 8px;
+  }
+
+  .user-info .avatar {
+    font-size: 22px;
+  }
+
+  .switch-user-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .user-dropdown {
+    min-width: 180px;
+  }
+
+  .dropdown-item {
+    padding: 12px 14px;
+  }
+
+  .dropdown-item .avatar {
+    font-size: 20px;
+  }
+
+  .dropdown-item .username {
+    font-size: 13px;
+  }
+
+  .leaderboard-container {
+    padding: 14px;
+  }
+
+  .leaderboard-container h2 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .leaderboard-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .leaderboard-item .rank {
+    font-size: 20px;
+    min-width: 35px;
+  }
+
+  .leaderboard-item .user-info .avatar {
+    font-size: 30px;
+  }
+
+  .leaderboard-item .user-info .username {
+    font-size: 14px;
+  }
+
+  .leaderboard-item .stats {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .leaderboard-item .points,
+  .leaderboard-item .accuracy {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .modal-content {
+    padding: 16px;
+    max-width: calc(100% - 24px);
+  }
+
+  .modal-content h3 {
+    font-size: 17px;
+    margin-bottom: 16px;
+  }
+
+  .modal-content input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
