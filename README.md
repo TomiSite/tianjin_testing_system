@@ -101,7 +101,7 @@ npm run preview
 ## 📁 项目结构
 
 ```
-math-learning/
+tianjin_students_testing_system/
 ├── src/
 │   ├── components/
 │   │   ├── Quiz/           # 答题组件
