@@ -2,6 +2,7 @@ import React from 'react';
 import type { UserProgress, QuestionType, GradeLevel, SchoolSemester } from '../../data/types';
 import type { UserInfo } from '../../engine/userManager';
 import { getQuestionStats } from '../../data';
+import { unitTestQuestions } from '../../data/unitTestQuestions';
 import { AnalysisPanel } from '../Analysis/AnalysisPanel';
 
 interface DashboardProps {
@@ -15,6 +16,7 @@ interface DashboardProps {
   onGradeChange: (grade: GradeLevel) => void;
   onSemesterChange: (semester: SchoolSemester | 'all') => void;
   onClearRecords: () => void;
+  onStartUnitTest: () => void;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({
@@ -28,6 +30,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onGradeChange,
   onSemesterChange,
   onClearRecords,
+  onStartUnitTest,
 }) => {
   const accuracy = progress.answeredCount > 0
     ? Math.round((progress.correctCount / progress.answeredCount) * 100)
@@ -188,6 +191,24 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <button className="secondary-btn" onClick={onClearRecords} style={{ marginLeft: '10px' }}>
           🗑️ 清除记录
         </button>
+      </div>
+
+      {/* 单元测试栏目 */}
+      <div className="subject-section">
+        <h2>📋 单元测试</h2>
+        <div className="unit-test-card" onClick={onStartUnitTest}>
+          <div className="unit-test-icon">📝</div>
+          <div className="unit-test-info">
+            <div className="unit-test-title">A2-2 五年级数学第二单元练习</div>
+            <div className="unit-test-desc">因数与倍数 · 质数与合数 · 2/3/5 的倍数特征</div>
+            <div className="unit-test-meta">
+              <span>共 {unitTestQuestions.length} 题</span>
+              <span>·</span>
+              <span>满分 100 分</span>
+            </div>
+          </div>
+          <div className="unit-test-arrow">→</div>
+        </div>
       </div>
 
       <AnalysisPanel progress={progress} />

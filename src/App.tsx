@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Quiz } from './components/Quiz/Quiz';
+import { UnitTest } from './components/UnitTest/UnitTest';
 import { Dashboard } from './components/Dashboard/Dashboard';
 import { UserSelector } from './components/User/UserSelector';
 import { Leaderboard } from './components/User/Leaderboard';
@@ -20,7 +21,7 @@ import {
 import './components/User/UserStyles.css';
 import './App.css';
 
-type View = 'dashboard' | 'quiz';
+type View = 'dashboard' | 'quiz' | 'unitTest';
 
 function App() {
   const [currentView, setCurrentView] = useState<View>('dashboard');
@@ -168,6 +169,15 @@ function App() {
     }
   };
 
+  // 开始单元测试
+  const handleStartUnitTest = () => {
+    if (!currentUser) {
+      alert('请先创建或选择用户！');
+      return;
+    }
+    setCurrentView('unitTest');
+  };
+
   return (
     <div className="app">
       <UserSelector
@@ -190,6 +200,7 @@ function App() {
             onGradeChange={handleGradeChange}
             onSemesterChange={handleSemesterChange}
             onClearRecords={handleClearRecords}
+            onStartUnitTest={handleStartUnitTest}
           />
           <div style={{ marginTop: '20px' }}>
             <Leaderboard
@@ -198,6 +209,10 @@ function App() {
             />
           </div>
         </>
+      )}
+
+      {currentView === 'unitTest' && (
+        <UnitTest onBackToDashboard={handleBackToDashboard} />
       )}
 
       {currentView === 'quiz' && currentQuestion && (
